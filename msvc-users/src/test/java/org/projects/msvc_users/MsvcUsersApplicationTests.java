@@ -1,10 +1,10 @@
-package org.projects.Institute_management;
+package org.projects.msvc_users;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class InstituteManagementApplicationTests {
+class MsvcUsersApplicationTests {
 
 	@Test
 	void contextLoads() {

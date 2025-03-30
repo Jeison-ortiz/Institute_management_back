@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.3</version>
+		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.projects</groupId>
-	<artifactId>Institute_management</artifactId>
+	<artifactId>msvc-users</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Institute_management</name>
+	<name>msvc-users</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

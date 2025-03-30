@@ -1,13 +1,13 @@
-package org.projects.Institute_management;
+package org.projects.msvc_users;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InstituteManagementApplication {
+public class MsvcUsersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InstituteManagementApplication.class, args);
+		SpringApplication.run(MsvcUsersApplication.class, args);
 	}
 
 }
