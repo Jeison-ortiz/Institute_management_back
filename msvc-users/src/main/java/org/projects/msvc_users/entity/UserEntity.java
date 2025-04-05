@@ -60,11 +60,11 @@ public class UserEntity {
     @Column(name = "tutor_id")
     private Long tutorId;
 
-    @Column(name = "agreement_id")
+    @Column(name = "agreement_id", insertable=false, updatable=false)
     private Long agreementId;
 
     @ManyToOne
-    @JoinColumn(name = "tutor_id")
+    @JoinColumn(name = "tutor_id",insertable=false, updatable=false)
     private UserEntity tutor;
 
     @ManyToOne
