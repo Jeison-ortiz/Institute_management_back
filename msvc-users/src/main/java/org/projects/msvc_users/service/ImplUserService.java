@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.projects.msvc_users.entity.UserEntity;
+import org.projects.msvc_users.exceptions.UserNotFoundException;
 import org.projects.msvc_users.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ImplUserService implements UserService{
@@ -16,25 +18,29 @@ public class ImplUserService implements UserService{
     UserRepository userRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<UserEntity> findAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public Optional<UserEntity> findById(Long id) {
+    @Transactional(readOnly = true)
+    public Optional<UserEntity> findById(Long id){
         Optional<UserEntity> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) {
             return userOptional;
         }
-       return Optional.empty(); 
+        return Optional.empty();           
     }
 
     @Override
+    @Transactional
     public UserEntity save(UserEntity userEntity) {
        return userRepository.save(userEntity);
     }
 
     @Override
+    @Transactional
     public UserEntity update(Long id ,UserEntity userEntity) {
         Optional<UserEntity> userUpdate = userRepository.findById(id);
         if (userUpdate.isPresent()) {
@@ -44,11 +50,9 @@ public class ImplUserService implements UserService{
             if (userEntity.getAddress() != null) userEntity2.setAddress(userEntity.getAddress());
             if (userEntity.getEmail() != null) userEntity2.setEmail(userEntity.getEmail());
             if (userEntity.getPhone() != null) userEntity2.setPhone(userEntity.getPhone());
-            if (userEntity.getPassword() != null) userEntity2.setPassword(userEntity.getPassword());
             if (userEntity.getDocument() != null) userEntity2.setDocument(userEntity.getDocument());
             if (userEntity.getDocumentType() != null) userEntity2.setDocumentType(userEntity.getDocumentType());
             if (userEntity.getBirthDate() != null) userEntity2.setBirthDate(userEntity.getBirthDate());
-            if (userEntity.getCreatedAt() != null) userEntity2.setCreatedAt(userEntity.getCreatedAt());
             if (userEntity.getStatusUpdatedAt() != null) userEntity2.setStatusUpdatedAt(userEntity.getStatusUpdatedAt());
             if (userEntity.getDataUpdatedAt() != null) userEntity2.setDataUpdatedAt(userEntity.getDataUpdatedAt());
             else userEntity2.setDataUpdatedAt(new Date()); // Actualiza con fecha actual si no viene en el request
@@ -63,15 +67,16 @@ public class ImplUserService implements UserService{
             userEntity2.setStatus(userEntity.isStatus()); // Si `false` es válido, entonces sí lo actualizas directamente
     
             return userRepository.save(userEntity2);
+        }else {
+            throw new UserNotFoundException("Usuario con id " + id + " no encontrado");
         }
-        return null;
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         if (userRepository.existsById(id)) {
             userRepository.deleteById(id);
         }
     }
-
 }

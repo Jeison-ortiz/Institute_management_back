@@ -3,6 +3,7 @@ package org.projects.msvc_users.controller;
 import java.util.List;
 
 import org.projects.msvc_users.entity.UserEntity;
+import org.projects.msvc_users.exceptions.UserNotFoundException;
 import org.projects.msvc_users.repository.UserRepository;
 import org.projects.msvc_users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +31,9 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserEntity> findById(@PathVariable Long id){
+    public ResponseEntity<UserEntity> findById(@PathVariable Long id) throws UserNotFoundException, Exception{
         return userService.findById(id).map(ResponseEntity::ok)
-        .orElse(ResponseEntity.notFound().build());
+        .orElseThrow(()-> new UserNotFoundException("Usuario con id " + id + " no encontrado"));
     }
 
     @PostMapping
