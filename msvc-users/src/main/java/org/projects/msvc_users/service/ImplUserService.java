@@ -4,8 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import org.projects.msvc_users.entity.UserEntity;
 import org.projects.msvc_users.exceptions.UserNotFoundException;
+import org.projects.msvc_users.model.entity.UserEntity;
 import org.projects.msvc_users.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

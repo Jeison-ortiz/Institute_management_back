@@ -1,7 +1,6 @@
-package org.projects.msvc_users.entity;
+package org.projects.msvc_users.model.entity;
 
 import java.util.Date;
-
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

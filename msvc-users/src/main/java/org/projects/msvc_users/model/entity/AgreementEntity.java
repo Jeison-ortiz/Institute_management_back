@@ -1,4 +1,4 @@
-package org.projects.msvc_users.entity;
+package org.projects.msvc_users.model.entity;
 
 import java.util.List;
 

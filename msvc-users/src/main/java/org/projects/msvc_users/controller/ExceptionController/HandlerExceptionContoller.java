@@ -10,8 +10,8 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.Date;
 
-import org.projects.msvc_users.entity.models.Error;
 import org.projects.msvc_users.exceptions.UserNotFoundException;
+import org.projects.msvc_users.model.exception.Error;
 
 @ControllerAdvice
 public class HandlerExceptionContoller {

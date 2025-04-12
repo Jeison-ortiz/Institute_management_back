@@ -2,8 +2,8 @@ package org.projects.msvc_users.controller;
 
 import java.util.List;
 
-import org.projects.msvc_users.entity.UserEntity;
 import org.projects.msvc_users.exceptions.UserNotFoundException;
+import org.projects.msvc_users.model.entity.UserEntity;
 import org.projects.msvc_users.repository.UserRepository;
 import org.projects.msvc_users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

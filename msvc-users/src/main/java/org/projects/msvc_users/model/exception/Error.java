@@ -1,4 +1,4 @@
-package org.projects.msvc_users.entity.models;
+package org.projects.msvc_users.model.exception;
 
 import java.util.Date;
 
