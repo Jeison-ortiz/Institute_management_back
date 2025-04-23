@@ -50,5 +50,6 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable Long id){
         userService.delete(id);
         return ResponseEntity.ok().build();
+        
     }
 }
